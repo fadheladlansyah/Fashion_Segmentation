@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<style>    
+  .pred-container {margin-bottom: 20px;}
+
+  .pred-container > div {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+
+  .row {display: table-row}
+  .cell {
+    display: table-cell;
+    padding-right: 20px;
+  }
+
+  .file-container {margin-bottom: 20px;
+</style>  
+    
+    
+<body>
+  <div class="container-body">
+        
+    <section class='section-suptitle'>
+      <h1>Fruit : Fresh or Rotten ?</h1>
+    </section>
+
+    <section>
+      <p class='section-head'></p>
+      <p>
+        Dataset from <a href="https://www.kaggle.com/sriramr/fruits-fresh-and-rotten-for-classification/">Kaggle</a>.
+      </p>
+    </section>
+
+    <!-- Add an image that we will use to test -->
+    <section>
+      <p class='section-head'>Prediction</p>
+
+      <div style="display: none" id="container-file" >
+        <input type="file" id="files" name="files[]" multiple />
+      </div><br><br>
+
+      <div id="predictions"></div>
+
+      <img style="display: none" id="img" src="sample_apple.jpg" width=256 height=256 crossorigin="anonymous" />
+    </section>
+        
+  </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>  
+  <script src="index.js"></script>
+</body>
+</html>

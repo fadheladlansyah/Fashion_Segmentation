@@ -1,0 +1,11 @@
+# Logs
+
+# Firebase cache
+.firebase/
+
+# Firebase config
+
+# Runtime data
+
+# model
+app/model/
