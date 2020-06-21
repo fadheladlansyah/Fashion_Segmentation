@@ -2,7 +2,8 @@
 
 Bangkit Final Project of Group JKT2B
 
-To reproduce it, opening our notebook (???.pynb) and run all the cells inside Google Colabs
+To reproduce it, opening our notebook [improvement_NASNetMobile.ipynb](https://github.com/fadheladlansyah/fruits-fresh-and-rotten/blob/master/improvement_NASNetMobile.ipynb)
+ and run all the cells inside Google Colabs
 
 ## Description 
 This project aims to classify fresh or rotten fruits using NASNetMobile. 
