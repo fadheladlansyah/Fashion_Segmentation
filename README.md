@@ -18,10 +18,10 @@ This dataset consist of 13599 photos for three kinds of  fruits: apples, oranges
 
 # Depedencies
 
-Tensorflow 2.2.0
-Matplotlib 3.2.1
-Numpy 1.18.4
-ImageCV 4.1.2
+- Tensorflow 2.2.0
+- Matplotlib 3.2.1
+- Numpy 1.18.4
+- ImageCV 4.1.2
 
 # Result
 The NASNetMobile model has good accuracy (~98%) while testing on a random sample image from Google and also has a smaller size file (31 mb) than other models.
