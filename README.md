@@ -8,7 +8,7 @@ To reproduce it, opening our notebook (???.pynb) and run all the cells inside Go
 This project aims to classify fresh or rotten fruits using NASNetMobile. 
 
 # Dataset 
-This dataset consist of 13599 photos for three kinds of  fruits: apples, oranges, bananas. Each fruit has 2 category, which is fresh and rotten. There are 6 levels:
+This [dataset](https://www.kaggle.com/sriramr/fruits-fresh-and-rotten-for-classification) consist of 13599 photos for three kinds of  fruits: apples, oranges, bananas. Each fruit has 2 category, which is fresh and rotten. There are 6 levels:
 1. Fresh Apple
 2. Fresh Banana
 3. Fresh Orange
