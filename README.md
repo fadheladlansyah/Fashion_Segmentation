@@ -1,6 +1,6 @@
 # Classification of Fresh and Rotten Fruits using NASNetMobile
 
-Bangkit Final Project of Group JKT2A
+Bangkit Final Project of Group JKT2B
 
 To reproduce it, opening our notebook (???.pynb) and run all the cells inside Google Colabs
 
