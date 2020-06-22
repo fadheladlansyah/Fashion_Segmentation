@@ -16,14 +16,17 @@ const REF_CLASSES = {
   5: 'Rotten Orange'
 };
 
+const webcam = new Webcam(document.getElementById('wc'));
+let isPredicting = false;
 
 
 let model;
 const warmup = async () => {
   // Load the model
   // Run prediction on sample image
-  // Make prediction from local files, if uploaded
-
+  
+  await webcam.setup();
+    
   const startTime1 = performance.now();
     
   console.log("load model...");
@@ -45,17 +48,19 @@ const warmup = async () => {
       imgElement.style.display = '';
     }
   }
-  
+
   const elapsedTime2 = performance.now() - startTime2;
   console.log(`predict warmup sample DONE in ${elapsedTime2} ms`);
     
-  document.getElementById('container-file').style.display = '';
+  // let buttons appear
+  document.getElementById('webcamButton').style.display = '';
+  document.getElementById('uploadButton').style.display = '';
 }
 
 
 async function getClasses(prediction) {
   const values = await prediction.data();
-  const topK = 2;
+  const topK = 1;
 
   const valuesAndIndices = [];
   for (let i = 0; i < values.length; i++) {
@@ -100,6 +105,7 @@ async function predictImage(imgElement) {
   const classes = await getClasses(prediction);
   
   showResults(imgElement, classes);
+  prediction.dispose();
 }
 
 
@@ -161,7 +167,40 @@ filesElement.addEventListener('change', evt => {
 });
 
 
+async function predictFrame() {
+  while (isPredicting) {
+    const startTime = performance.now();  
+    
+    const prediction = tf.tidy(() => {
+      const img = webcam.capture();
+      return model.predict(img);
+    });
+    
+    const classes = await getClasses(prediction);
+      
+    var predictionText = `${classes[0].className}   ${classes[0].probability.toFixed(4) * 100} %`;
+   
+	document.getElementById("predictionWebcam").innerText = predictionText;
+			
+    prediction.dispose();
+    await tf.nextFrame();
+      
+    const elapsedTime = performance.now() - startTime;
+    console.log(`predict frame DONE in ${elapsedTime} ms`);
+  }
+}
 
-const predictionsElement = document.getElementById('predictions');
+function startPredicting(){
+	isPredicting = true;
+	predictFrame();
+}
+
+function stopPredicting(){
+	isPredicting = false;
+	predictFrame();
+}
+
+
+const predictionsElement = document.getElementById('predictionFile');
 
 warmup();
